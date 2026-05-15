@@ -116,3 +116,15 @@
   40% { transform: scale(1); opacity: 1; }
 }
 .typing-dot { animation: typing-bounce 1.2s infinite ease-in-out; }
+
+@keyframes btn-soft-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+.animate-btn-pulse { animation: btn-soft-pulse 3s ease-in-out infinite; }
+
+@keyframes fade-out-down {
+  from { opacity: 1; transform: translateY(0); }
+  to { opacity: 0; transform: translateY(4px); }
+}
+.animate-fade-out { animation: fade-out-down 200ms ease-out both; }
