@@ -76,11 +76,15 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { title: "SmartSupport AI — Plateforme de support client intelligent" },
       { name: "description", content: "Démo MVP : portail client conversationnel, dashboard technicien augmenté à l'IA et base de connaissances dynamique." },
       { name: "author", content: "SmartSupport AI" },
-      { property: "og:title", content: "SmartSupport AI" },
-      { property: "og:description", content: "Plateforme de support client intelligent pour éditeurs de logiciels métier." },
+      { property: "og:title", content: "SmartSupport AI — Plateforme de support client intelligent" },
+      { property: "og:description", content: "Démo MVP : portail client conversationnel, dashboard technicien augmenté à l'IA et base de connaissances dynamique." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "SmartSupport AI — Plateforme de support client intelligent" },
+      { name: "twitter:description", content: "Démo MVP : portail client conversationnel, dashboard technicien augmenté à l'IA et base de connaissances dynamique." },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/3a3466b8-60e8-4678-831c-e124b2cd76a0" },
+      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/3a3466b8-60e8-4678-831c-e124b2cd76a0" },
     ],
     links: [
       {
