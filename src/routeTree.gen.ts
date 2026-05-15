@@ -9,8 +9,26 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TechnicienRouteImport } from './routes/technicien'
+import { Route as ClientRouteImport } from './routes/client'
+import { Route as BaseRouteImport } from './routes/base'
 import { Route as IndexRouteImport } from './routes/index'
 
+const TechnicienRoute = TechnicienRouteImport.update({
+  id: '/technicien',
+  path: '/technicien',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ClientRoute = ClientRouteImport.update({
+  id: '/client',
+  path: '/client',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BaseRoute = BaseRouteImport.update({
+  id: '/base',
+  path: '/base',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -19,28 +37,61 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/base': typeof BaseRoute
+  '/client': typeof ClientRoute
+  '/technicien': typeof TechnicienRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/base': typeof BaseRoute
+  '/client': typeof ClientRoute
+  '/technicien': typeof TechnicienRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/base': typeof BaseRoute
+  '/client': typeof ClientRoute
+  '/technicien': typeof TechnicienRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/base' | '/client' | '/technicien'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/base' | '/client' | '/technicien'
+  id: '__root__' | '/' | '/base' | '/client' | '/technicien'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BaseRoute: typeof BaseRoute
+  ClientRoute: typeof ClientRoute
+  TechnicienRoute: typeof TechnicienRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/technicien': {
+      id: '/technicien'
+      path: '/technicien'
+      fullPath: '/technicien'
+      preLoaderRoute: typeof TechnicienRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/client': {
+      id: '/client'
+      path: '/client'
+      fullPath: '/client'
+      preLoaderRoute: typeof ClientRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/base': {
+      id: '/base'
+      path: '/base'
+      fullPath: '/base'
+      preLoaderRoute: typeof BaseRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -53,6 +104,9 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BaseRoute: BaseRoute,
+  ClientRoute: ClientRoute,
+  TechnicienRoute: TechnicienRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
