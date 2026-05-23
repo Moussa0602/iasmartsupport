@@ -19,7 +19,7 @@ const filters = [
   "Tous",
   "Démarrage",
   "Paramétrage",
-  "Stock & Synchronisation",
+  "Réseau & Connectivité",
   "Comptabilité",
   "Caisse",
   "API & Intégrations",
@@ -61,10 +61,10 @@ function BasePage() {
         </p>
 
         <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          <Kpi label="Articles publiés" value="247" sub="dont 142 IA-générés" />
-          <Kpi label="Créés ce mois" value="38" trend />
-          <Kpi label="Résolution self-service" value="67%" sub="taux" />
-          <Kpi label="Tickets évités" value="1 842" sub="ce mois-ci" />
+          <Kpi label="Articles publiés" value="89" sub="dont 47 IA-générés" />
+          <Kpi label="Créés ce mois" value="14" trend />
+          <Kpi label="Résolution self-service" value="72%" sub="taux" />
+          <Kpi label="Tickets évités" value="312" sub="ce mois-ci" />
         </div>
 
         <div className="mt-10 flex flex-col gap-4 lg:flex-row lg:items-center">
@@ -139,6 +139,35 @@ function BasePage() {
             </button>
           ))}
         </div>
+
+        <footer className="mt-20 border-t border-border pt-8 text-xs text-text-muted">
+          <div className="grid gap-6 md:grid-cols-3">
+            <div>
+              <div className="font-medium text-foreground">SmartSupport AI</div>
+              <p className="mt-2 leading-relaxed">
+                Conçu à Djibouti, pour les PME de la Corne de l'Afrique.<br />
+                Immeuble El Rachid, Place du 27 juin, Djibouti-Ville.
+              </p>
+              <p className="mt-2">Hébergement conforme aux exigences ANSIE.</p>
+            </div>
+            <div>
+              <div className="font-medium text-foreground">Tarifs</div>
+              <ul className="mt-2 space-y-1" style={{ fontFamily: "var(--font-mono)" }}>
+                <li>Starter — 15 000 FDJ / mois</li>
+                <li>Pro — 45 000 FDJ / mois</li>
+                <li>Enterprise — 120 000 FDJ / mois</li>
+              </ul>
+            </div>
+            <div>
+              <div className="font-medium text-foreground">Paiement</div>
+              <p className="mt-2 leading-relaxed">
+                Virement bancaire BCIMR, BDCD, Salaam African Bank, CAC Bank ou Saba Islamic Bank.
+                Mobile money D-Money accepté pour Starter.
+              </p>
+              <p className="mt-2">Fuseau de facturation : EAT (UTC+3) · Semaine ouvrée dim → jeu.</p>
+            </div>
+          </div>
+        </footer>
       </main>
     </div>
   );
