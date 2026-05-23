@@ -77,13 +77,13 @@ function ClientPage() {
           >
             <div className="flex items-center justify-between">
               <span className="text-xs text-text-muted" style={{ fontFamily: "var(--font-mono)" }}>
-                #TKT-2026-1844
+                #TKT-2026-1839
               </span>
-              <span className="text-xs text-text-muted">Il y a 2 h</span>
+              <span className="text-xs text-text-muted">Ouvert le 18/05/2026</span>
             </div>
             <div className="mt-2 flex items-center justify-between gap-4">
               <p className="text-base font-medium text-foreground">
-                Comment paramétrer les remises fidélité ?
+                Configurer le calendrier dim → jeu pour l'équipe de Tadjourah
               </p>
               <span
                 className="shrink-0 rounded-full px-3 py-1 text-xs font-medium"
@@ -94,6 +94,10 @@ function ClientPage() {
             </div>
           </div>
         </section>
+
+        <p className="mt-10 text-center text-xs text-text-muted">
+          Support assuré en français, anglais et arabe · Fuseau EAT (UTC+3) · dimanche → jeudi
+        </p>
       </main>
       <Chatbot />
     </div>
