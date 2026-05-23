@@ -148,7 +148,6 @@ function BasePage() {
                 Conçu à Djibouti, pour les PME de la Corne de l'Afrique.<br />
                 Immeuble El Rachid, Place du 27 juin, Djibouti-Ville.
               </p>
-              <p className="mt-2">Hébergement conforme aux exigences ANSIE.</p>
             </div>
             <div>
               <div className="font-medium text-foreground">Tarifs</div>
