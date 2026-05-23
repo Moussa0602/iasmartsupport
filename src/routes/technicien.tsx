@@ -61,21 +61,23 @@ function TechPage() {
             <h1 className="font-serif text-foreground" style={{ fontSize: "36px" }}>
               Dashboard support
             </h1>
-            <p className="mt-1 text-text-muted">Lou Martinez · Niveau 2 · 4 tickets actifs</p>
+            <p className="mt-1 text-text-muted">
+              Hassan Robleh · Senior support · 6 tickets actifs · Fuseau EAT (UTC+3)
+            </p>
           </div>
           <div
             className="flex h-11 w-11 items-center justify-center rounded-full text-sm font-semibold text-white"
             style={{ backgroundColor: "var(--ink)" }}
           >
-            LM
+            HR
           </div>
         </div>
 
         <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          <Kpi label="Ouverts" value="4" />
+          <Kpi label="Ouverts" value="6" />
           <Kpi label="Critiques" value="1" accent="var(--coral)" />
-          <Kpi label="SLA < 1h" value="2" accent="var(--amber-warn)" />
-          <Kpi label="Résolus aujourd'hui" value="17" accent="var(--sage)" />
+          <Kpi label="SLA < 4h" value="2" accent="var(--amber-warn)" />
+          <Kpi label="Résolus aujourd'hui" value="9" accent="var(--sage)" />
         </div>
 
         <div className="mt-8 grid gap-6 lg:grid-cols-[40%_1fr]">
@@ -121,7 +123,7 @@ function TechPage() {
                     </div>
                     <p className="mt-2 text-sm font-medium text-foreground">{t.title}</p>
                     <p className="mt-1 text-xs text-text-muted">
-                      {t.customer} · {t.ago}
+                      {t.customer}{t.company ? ` · ${t.company}` : ""} · {t.ago}
                     </p>
                   </button>
                 );
@@ -139,11 +141,15 @@ function TechPage() {
                 <span>·</span>
                 <span>{ticket.category ?? "Bug"}</span>
               </div>
-              <h2 className="mt-2 font-serif text-foreground" style={{ fontSize: "26px" }}>
+              <h2
+                className="mt-2 font-serif text-foreground"
+                style={{ fontSize: "26px" }}
+                dir={ticket.rtl ? "rtl" : "ltr"}
+              >
                 {ticket.title}
               </h2>
               <p className="mt-1 text-sm text-text-muted">
-                Marie Dubois — Boutique Mode &amp; Co · ERP Retail v4.2 · Ouvert il y a 8 min
+                {ticket.customer} — {ticket.company ?? "—"} · ERP Logistics v4.2 · Ouvert {ticket.ago.toLowerCase()}
               </p>
             </div>
 
@@ -157,15 +163,16 @@ function TechPage() {
               </span>
               <h3 className="mt-2 font-serif text-xl text-foreground">Résumé IA</h3>
               <p className="mt-3 text-sm leading-relaxed text-foreground">
-                Marie ne peut pas synchroniser les stocks entre son magasin physique et son site e-commerce.
-                La synchro nocturne a échoué (fenêtre maintenance 23h-1h). Une tentative manuelle déclenche une erreur
-                «&nbsp;Conflit de stock détecté sur 12 références&nbsp;». 3 commandes web sont actuellement non honorables.
+                Khadija signale que l'agence de Tadjourah est désynchronisée du serveur central depuis 8h
+                (EAT). La liaison fibre Djibouti Telecom est instable sur la zone — incident concordant
+                avec 2 autres clients de la région. L'activation du mode hors-ligne déclenche l'erreur
+                «&nbsp;OFFLINE_LOCK_412&nbsp;» : une transaction côté serveur n'a pas été libérée.
               </p>
               <ul className="mt-4 space-y-1 text-xs text-foreground/80" style={{ fontFamily: "var(--font-mono)" }}>
-                <li>• Dernière synchro réussie : hier 17h45</li>
-                <li>• Ventes magasin concernées : 18h00 → 19h30</li>
-                <li>• Erreur reproductible — code SYNC_CONFLICT_412</li>
-                <li>• Plan tarifaire : Pro (SLA 4h)</li>
+                <li>• Dernière synchro réussie : aujourd'hui 07h42 EAT</li>
+                <li>• Agence affectée : Tadjourah (autres sites OK)</li>
+                <li>• Erreur reproductible — code OFFLINE_LOCK_412</li>
+                <li>• Plan tarifaire : Pro · 45 000 FDJ / mois · SLA 4h</li>
               </ul>
             </div>
 
@@ -201,7 +208,7 @@ function TechPage() {
               </p>
               <div className="mt-4 flex flex-wrap gap-2">
                 <button
-                  onClick={() => toast.success("Réponse envoyée à Marie Dubois")}
+                  onClick={() => toast.success(`Réponse envoyée à ${ticket.customer}`)}
                   className="rounded-md px-4 py-2 text-sm font-medium text-white transition-opacity hover:opacity-90"
                   style={{ backgroundColor: "var(--ink)" }}
                 >
@@ -278,16 +285,16 @@ function TechPage() {
               <div>
                 <span className="text-text-muted">Titre proposé : </span>
                 <span className="font-medium text-foreground">
-                  Résoudre un conflit de synchronisation de stock multi-canal
+                  Résoudre une coupure de synchronisation Djibouti Telecom
                 </span>
               </div>
               <div className="mt-2">
                 <span className="text-text-muted">Catégorie : </span>
-                <span className="font-medium text-foreground">Stock &amp; Synchronisation</span>
+                <span className="font-medium text-foreground">Réseau &amp; Connectivité</span>
               </div>
               <div className="mt-2 flex flex-wrap items-center gap-1">
                 <span className="text-text-muted">Tags : </span>
-                {["SYNC_CONFLICT_412", "omnicanal", "synchronisation"].map((t) => (
+                {["OFFLINE_LOCK_412", "Djibouti-Telecom", "bascule-4G"].map((t) => (
                   <span
                     key={t}
                     className="rounded border border-border bg-muted px-1.5 py-0.5 text-[11px]"
