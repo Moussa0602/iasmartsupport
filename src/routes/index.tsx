@@ -45,7 +45,8 @@ function Home() {
           SmartSupport <span style={{ color: "var(--coral)" }}>AI</span>
         </h1>
         <p className="mt-5 max-w-2xl text-center text-text-muted" style={{ fontSize: "18px" }}>
-          Plateforme de support client intelligent — démo MVP.
+          Plateforme de support client intelligent — pensée pour les PME djiboutiennes,
+          parastataux et ONG de la Corne de l'Afrique.
         </p>
 
         <div className="mt-16 grid w-full max-w-[1100px] gap-6 md:grid-cols-3">
@@ -71,6 +72,10 @@ function Home() {
             );
           })}
         </div>
+
+        <p className="mt-16 text-center text-xs text-text-muted">
+          SmartSupport AI — Conçu à Djibouti · Immeuble El Rachid, Place du 27 juin, Djibouti-Ville · Fuseau EAT (UTC+3)
+        </p>
       </main>
     </div>
   );
