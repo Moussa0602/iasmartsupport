@@ -15,39 +15,39 @@ const SCRIPT: Msg[] = [
   {
     id: 2,
     from: "user",
-    text: "Bonjour, les produits vendus en magasin hier soir apparaissent toujours en stock sur mon site web. J'ai déjà 3 commandes que je ne peux pas honorer.",
+    text: "Bonjour, depuis ce matin 8h notre agence de Tadjourah n'arrive plus à se synchroniser avec le serveur central. Toutes les opérations de l'agence sont bloquées.",
   },
   {
     id: 3,
     from: "assistant",
-    text: "Je comprends, c'est un problème de synchronisation entre votre caisse magasin et votre boutique en ligne. Pour vous proposer la bonne piste, 2 questions rapides :\n\n• À quelle heure ont eu lieu les ventes magasin d'hier soir ?\n• À quelle heure est la dernière synchronisation réussie visible dans votre tableau de bord ?",
+    text: "Je comprends, c'est probablement lié à la liaison Djibouti Telecom. Pour vous proposer la bonne piste, 2 questions rapides :\n\n• L'agence de Tadjourah voit-elle un message d'erreur précis à l'écran ?\n• Les autres agences (Djibouti-Ville, Ali Sabieh) sont-elles également affectées ?",
   },
   {
     id: 4,
     from: "user",
-    text: "Les ventes étaient entre 18h et 19h30. La dernière synchro réussie affichée est à 17h45 hier.",
+    text: "Tadjourah affiche « Connexion serveur perdue ». Les autres agences fonctionnent normalement.",
   },
   {
     id: 5,
     from: "assistant",
-    text: "Diagnostic clair : votre synchronisation nocturne a échoué pendant la fenêtre de maintenance (23h-1h). Voici une résolution en 3 étapes :\n\n1. Forcer une synchronisation manuelle depuis Stock > Synchronisation\n2. Vérifier les 3 commandes web et contacter les clients concernés\n3. Activer l'option « Synchronisation de rattrapage » pour éviter le problème\n\nVoulez-vous que je vous guide sur l'étape 1 ?",
+    text: "Diagnostic clair : la liaison fibre Djibouti Telecom vers Tadjourah est instable depuis 06h ce matin (incident déjà signalé par 2 autres clients de la zone). Voici une résolution en 3 étapes :\n\n1. Activer le mode hors-ligne local pour reprendre la saisie\n2. Forcer une resynchronisation dès le retour du lien\n3. Configurer la bascule automatique vers le routeur 4G de secours\n\nVoulez-vous que je vous guide sur l'étape 1 ?",
   },
   {
     id: 6,
     from: "user",
-    text: "J'ai essayé de forcer la synchro manuelle, mais j'ai une erreur \"Conflit de stock détecté sur 12 références\". Je ne sais pas quoi faire.",
+    text: "J'ai essayé d'activer le mode hors-ligne, mais j'ai une erreur « OFFLINE_LOCK_412 ». Je ne sais pas quoi faire.",
   },
   {
     id: 7,
     from: "assistant",
-    text: "Cette erreur (code SYNC_CONFLICT_412) nécessite l'intervention d'un technicien — c'est un cas où plusieurs canaux ont vendu simultanément le même produit. Je vais créer pour vous un ticket avec tout le contexte de notre échange. Un technicien vous répondra sous 4 heures (plan Pro · SLA 4h).",
+    text: "Cette erreur (code OFFLINE_LOCK_412) nécessite l'intervention d'un technicien — la base locale est verrouillée par une transaction côté serveur. Je vais créer pour vous un ticket avec tout le contexte de notre échange. Un technicien vous répondra sous 4 heures (plan Pro · 45 000 FDJ / mois · SLA 4h, fuseau EAT).",
   },
 ];
 
 const FINAL_ASSISTANT: Msg = {
   id: 99,
   from: "assistant",
-  text: "✓ Ticket TKT-2026-1847 créé avec succès. Un technicien va prendre en charge votre demande dans les prochaines minutes. Vous recevrez une notification par email à chaque mise à jour. Vous pouvez fermer cette conversation, tout est sauvegardé.",
+  text: "✓ Ticket TKT-2026-1847 créé avec succès. Hassan Robleh va prendre en charge votre demande dans les prochaines minutes. Vous recevrez une notification par email et WhatsApp Business (+253) à chaque mise à jour. Vous pouvez fermer cette conversation, tout est sauvegardé.",
 };
 
 export function Chatbot() {
