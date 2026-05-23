@@ -5,39 +5,62 @@ export interface Ticket {
   priority: Priority;
   title: string;
   customer: string;
+  company?: string;
   ago: string;
   category?: string;
+  rtl?: boolean;
 }
 
 export const tickets: Ticket[] = [
   {
     id: "TKT-2026-1847",
     priority: "Critique",
-    title: "Conflit de stock multi-canal — synchro impossible",
-    customer: "Marie Dubois",
-    ago: "Il y a 8 min",
-    category: "Bug",
+    title: "Coupure de synchronisation avec Djibouti Telecom — agence de Tadjourah, depuis 8h ce matin",
+    customer: "Khadija Houssein",
+    company: "Doraleh Logistics",
+    ago: "Il y a 12 min",
+    category: "Réseau",
   },
   {
     id: "TKT-2026-1846",
     priority: "Haute",
-    title: "Impossible d'éditer une facture déjà validée",
-    customer: "Karim Belhaj",
-    ago: "Il y a 35 min",
+    title: "Export facture en FDJ : montant tronqué au-delà de 100 000",
+    customer: "Saïd Daoud",
+    company: "Atlas Trading SARL",
+    ago: "Il y a 47 min",
   },
   {
     id: "TKT-2026-1845",
-    priority: "Normale",
-    title: "Formation : import CSV des clients",
-    customer: "Sophie Lenoir",
+    priority: "Haute",
+    title: "Module stock bloqué sur articles en attente de dédouanement à Doraleh",
+    customer: "Houmed Abdo",
+    company: "BTP Horizon Djibouti",
     ago: "Il y a 2 h",
   },
   {
+    id: "TKT-2026-1844",
+    priority: "Normale",
+    title: "Calendrier planning ne marque pas le 27 juin comme férié — équipe affectée à tort",
+    customer: "Asma Mohamed",
+    company: "Hôtel Acacias Djibouti",
+    ago: "Il y a 3 h",
+  },
+  {
     id: "TKT-2026-1843",
-    priority: "Haute",
-    title: "Caisse bloquée au démarrage — écran noir",
-    customer: "Thomas Roy",
+    priority: "Normale",
+    title: "Notifications WhatsApp Business : erreur d'envoi vers numéros +253",
+    customer: "Aïcha Omar",
+    company: "Digital Way DJ",
     ago: "Il y a 4 h",
+  },
+  {
+    id: "TKT-2026-1842",
+    priority: "Normale",
+    title: "طلب دعم خلال شهر رمضان — تعديل ساعات المناوبة المسائية",
+    customer: "Ibrahim Farah",
+    company: "Pharmacie Centrale du Plateau",
+    ago: "Il y a 5 h",
+    rtl: true,
   },
 ];
 
@@ -49,9 +72,9 @@ export interface SimilarCase {
 }
 
 export const similarCases: SimilarCase[] = [
-  { id: "TKT-2026-1602", title: "Conflit synchro après mise à jour caisse", ago: "Il y a 12 jours", score: 94 },
-  { id: "TKT-2026-1488", title: "Synchro nocturne échouée — stocks divergents", ago: "Il y a 1 mois", score: 87 },
-  { id: "TKT-2025-9821", title: "Erreur SYNC_CONFLICT_412 lors d'import manuel", ago: "Il y a 3 mois", score: 81 },
+  { id: "TKT-2026-1602", title: "Synchro Djibouti Telecom après maintenance fibre — agence Obock", ago: "Il y a 12 jours", score: 94 },
+  { id: "TKT-2026-1488", title: "Liaison instable depuis Ali Sabieh — bascule 4G de secours", ago: "Il y a 1 mois", score: 87 },
+  { id: "TKT-2025-9821", title: "Erreur OFFLINE_LOCK_412 après coupure prolongée", ago: "Il y a 3 mois", score: 81 },
 ];
 
 export interface Article {
@@ -69,23 +92,23 @@ export interface Article {
 export const articles: Article[] = [
   {
     id: "1",
-    category: "Stock & Synchronisation",
-    title: "Résoudre un conflit de synchronisation de stock multi-canal",
-    description: "Vous voyez l'erreur SYNC_CONFLICT_412 ? Voici comment résoudre un conflit en moins de 3 minutes.",
+    category: "Réseau & Connectivité",
+    title: "Résoudre une coupure de synchronisation Djibouti Telecom",
+    description: "Liaison fibre instable vers une agence régionale ? Voici la procédure de bascule 4G et de resynchronisation en moins de 5 minutes.",
     duration: "5 min",
-    views: "2 104 vues",
+    views: "412 vues",
     ai: true,
     featured: true,
-    freshLabel: "Nouveau · Généré il y a 5 min",
+    freshLabel: "Nouveau · Généré il y a 8 min",
   },
-  { id: "2", category: "Démarrage", title: "Premiers pas avec votre ERP en 10 minutes", description: "Configurez votre société, importez vos premiers clients et émettez votre première facture.", duration: "8 min", views: "4 821 vues" },
-  { id: "3", category: "Paramétrage", title: "Paramétrer les remises de fidélité par palier", description: "Créez un programme de fidélité avec remises automatiques selon le panier moyen ou le cumul annuel.", duration: "6 min", views: "1 789 vues" },
-  { id: "4", category: "Comptabilité", title: "Émettre un avoir sur une facture validée", description: "Une facture validée ne se modifie pas. Voici la procédure légale d'avoir + nouvelle facture.", duration: "4 min", views: "3 402 vues" },
-  { id: "5", category: "Caisse", title: "Caisse Sunmi : écran noir au démarrage", description: "Procédure de récupération en cas d'écran noir après coupure secteur ou mise à jour.", duration: "3 min", views: "956 vues", ai: true },
-  { id: "6", category: "API & Intégrations", title: "Connecter votre boutique Shopify à l'ERP", description: "Synchronisation bidirectionnelle catalogue, stock et commandes en moins de 15 minutes.", duration: "10 min", views: "1 523 vues" },
-  { id: "7", category: "Démarrage", title: "Importer 1 000+ fiches clients depuis Excel", description: "Modèle CSV, colonnes obligatoires, gestion des doublons et des erreurs d'import.", duration: "7 min", views: "2 876 vues" },
-  { id: "8", category: "Comptabilité", title: "Configurer la TVA multi-taux et les exonérations", description: "Gérez plusieurs taux de TVA, exonérations export et autoliquidation BTP.", duration: "9 min", views: "1 342 vues" },
-  { id: "9", category: "API & Intégrations", title: "Webhooks : recevoir les événements de commande en temps réel", description: "Configurez des webhooks signés pour synchroniser vos systèmes externes.", duration: "12 min", views: "687 vues" },
+  { id: "2", category: "Démarrage", title: "Premiers pas avec votre ERP en 10 minutes", description: "Configurez votre société djiboutienne (NIF, RCS), importez vos premiers clients et émettez votre première facture en FDJ.", duration: "8 min", views: "1 247 vues" },
+  { id: "3", category: "Paramétrage", title: "Configurer le calendrier dimanche → jeudi et les jours fériés", description: "Adaptez votre planning à la semaine de travail djiboutienne, intégrez le 27 juin et les fêtes lunaires.", duration: "6 min", views: "892 vues", ai: true },
+  { id: "4", category: "Comptabilité", title: "Émettre un avoir sur une facture validée en FDJ", description: "Une facture validée ne se modifie pas. Voici la procédure légale d'avoir + nouvelle facture, conforme à la fiscalité djiboutienne.", duration: "4 min", views: "634 vues" },
+  { id: "5", category: "Caisse", title: "Caisse Sunmi : écran noir au démarrage", description: "Procédure de récupération en cas d'écran noir après coupure secteur EDD ou mise à jour.", duration: "3 min", views: "287 vues", ai: true },
+  { id: "6", category: "API & Intégrations", title: "Intégration EDD : automatiser les relevés mensuels d'électricité", description: "Récupérez automatiquement vos relevés Électricité de Djibouti dans votre comptabilité analytique.", duration: "10 min", views: "198 vues" },
+  { id: "7", category: "Démarrage", title: "Importer 1 000+ fiches clients depuis Excel", description: "Modèle CSV, colonnes obligatoires (NIF, téléphone +253), gestion des doublons et des erreurs d'import.", duration: "7 min", views: "541 vues" },
+  { id: "8", category: "Comptabilité", title: "TVA djiboutienne et exonérations zone franche", description: "Paramétrez les taux applicables, gérez les exonérations zone franche et les opérations d'import-export.", duration: "9 min", views: "478 vues" },
+  { id: "9", category: "API & Intégrations", title: "Configurer le paiement BCIMR par virement SWIFT", description: "Connectez votre flux bancaire BCIMR pour le rapprochement automatique des virements clients.", duration: "12 min", views: "213 vues" },
 ];
 
 export interface ChatMessage {
@@ -94,26 +117,28 @@ export interface ChatMessage {
 }
 
 export const chatScript: ChatMessage[] = [
-  { from: "user", text: "Bonjour, les produits vendus en magasin hier soir apparaissent toujours en stock sur mon site web. J'ai déjà 3 commandes que je ne peux pas honorer." },
-  { from: "assistant", text: "Bonjour Marie, je vais vous aider à résoudre ce problème de synchronisation. J'ai 2 questions rapides : à quelle heure ont eu lieu les ventes magasin d'hier soir, et quand a été la dernière synchronisation réussie visible dans votre tableau de bord ?" },
-  { from: "user", text: "Les ventes magasin étaient entre 18h et 19h30. La dernière synchro réussie affichée est à 17h45 hier." },
-  { from: "assistant", text: "Diagnostic confirmé : votre synchronisation nocturne a échoué — probablement à cause de la fenêtre de maintenance entre 23h et 1h. Voulez-vous que je vous guide pour forcer une synchronisation manuelle depuis Stock > Synchronisation ?" },
-  { from: "user", text: "J'ai essayé de forcer la synchro manuelle, mais j'ai une erreur \"Conflit de stock détecté sur 12 références\". Je ne sais pas quoi faire." },
-  { from: "assistant", text: "Cette erreur nécessite une intervention technicien — c'est un cas où plusieurs canaux de vente ont vendu simultanément le même produit. Je crée pour vous un ticket avec tout notre échange en pièce jointe. Un technicien vous répondra sous 4 heures." },
+  { from: "user", text: "Bonjour, depuis ce matin 8h notre agence de Tadjourah n'arrive plus à se synchroniser avec le serveur central. Toutes les opérations sont bloquées." },
+  { from: "assistant", text: "Bonjour Khadija, je vais vous aider. C'est probablement lié à la liaison Djibouti Telecom — 2 questions rapides : l'agence Tadjourah voit-elle un message d'erreur précis, et les autres agences (Djibouti-Ville, Ali Sabieh) sont-elles également affectées ?" },
+  { from: "user", text: "Tadjourah affiche \"Connexion serveur perdue\". Les autres agences fonctionnent normalement." },
+  { from: "assistant", text: "Diagnostic confirmé : la liaison fibre Djibouti Telecom vers Tadjourah est instable depuis 6h ce matin (incident déjà signalé par 2 autres clients de la zone). Voulez-vous que je vous guide pour activer le mode hors-ligne local en attendant le retour du lien ?" },
+  { from: "user", text: "J'ai essayé d'activer le mode hors-ligne, mais j'ai une erreur \"OFFLINE_LOCK_412\". Je ne sais pas quoi faire." },
+  { from: "assistant", text: "Cette erreur nécessite une intervention technicien — la base locale est verrouillée par une transaction en cours côté serveur. Je crée pour vous un ticket avec tout notre échange. Un technicien vous répondra sous 4 heures (plan Pro · SLA 4h, fuseau EAT)." },
 ];
 
-export const suggestedReply = `Bonjour Marie,
+export const suggestedReply = `Bonjour Khadija,
 
-J'ai analysé votre échange avec notre assistant. L'erreur « Conflit de stock détecté sur 12 références » est un cas connu lorsque plusieurs canaux vendent simultanément le même produit pendant une fenêtre de synchronisation manquée.
+J'ai analysé votre échange avec notre assistant. L'erreur « OFFLINE_LOCK_412 » sur l'agence de Tadjourah est un cas connu lors d'une coupure prolongée de la liaison Djibouti Telecom alors qu'une transaction serveur est encore en cours.
 
 Voici la marche à suivre :
 
-1. Allez dans Stock > Conflits de synchronisation. Vous verrez les 12 références listées.
-2. Pour chaque ligne, choisissez « Stock magasin prioritaire » (vos ventes physiques sont la source de vérité).
-3. Validez en bas de page — la synchronisation reprend automatiquement en 2-3 minutes.
+1. Allez dans Administration > Agences > Tadjourah et cliquez sur « Forcer le déverrouillage local ».
+2. Activez ensuite « Mode hors-ligne » — la saisie reprend immédiatement, les opérations sont stockées localement.
+3. Dès le retour du lien fibre, lancez « Synchronisation de rattrapage » depuis Stock > Synchronisation.
 
-Pour les 3 commandes web non honorables, je vous suggère de contacter les clients depuis Commandes > Annuler avec remboursement automatique.
+Pour éviter ce blocage à l'avenir, je vous recommande d'activer la bascule automatique vers le routeur 4G de secours (Djibouti Telecom Mobile) : Paramètres > Réseau > Bascule 4G.
 
-Enfin, activez « Synchronisation de rattrapage » dans Paramètres > Synchronisation pour éviter ce cas après une fenêtre de maintenance.
+Je reste disponible si vous avez besoin d'un guidage écran par écran.
 
-Je reste disponible si vous avez besoin d'un guidage écran par écran.`;
+Hassan Robleh
+Senior support · SmartSupport AI
++253 21 35 27 18 · EAT (UTC+3)`;
