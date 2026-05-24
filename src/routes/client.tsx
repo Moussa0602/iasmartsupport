@@ -23,7 +23,7 @@ const categories = [
 function ClientPage() {
   return (
     <div className="min-h-screen bg-background">
-      <Header subBrand="by ERP Démo" />
+      <Header />
       <main className="mx-auto max-w-[1100px] px-6 py-16">
         <div className="text-center">
           <h1 className="font-serif text-foreground" style={{ fontSize: "48px", lineHeight: 1.1 }}>
